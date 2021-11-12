@@ -1,0 +1,3 @@
+mutation userLogin($email :String){
+    login (email : $email)
+}
