@@ -1,4 +1,4 @@
-package com.example.retrofit_hilt.di
+package com.example.apollographqlmutationdemo.di
 
 import com.example.apollographqlmutationdemo.data.network.CharApiService
 import dagger.Module

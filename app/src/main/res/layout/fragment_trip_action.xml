@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.login.LoginFragment">
+    tools:context=".ui.tripAction.TripActionFragment">
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/lottie_search"
+        android:id="@+id/lottie_graphql"
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:layout_gravity="center_horizontal"
@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/search" />
+        app:lottie_rawRes="@raw/rocket" />
 
     <LinearLayout
         android:id="@+id/llDivider"
@@ -27,7 +27,7 @@
         android:weightSum="12"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lottie_search">
+        app:layout_constraintTop_toBottomOf="@+id/lottie_graphql">
 
         <View
             android:layout_width="0dp"
@@ -39,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="4"
-            android:text="Enter your email here"
+            android:text="Trip Options"
             android:textAlignment="center"
             android:textSize="12sp" />
 
@@ -58,33 +58,60 @@
         android:layout_marginHorizontal="@dimen/view_20dp"
         android:layout_marginTop="@dimen/view_20dp"
         android:focusable="true"
+        android:hint="Input-Digit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/llDivider"
-        app:startIconDrawable="@drawable/ic_email"
-        app:startIconTint="#096ADD">
+        app:startIconDrawable="@drawable/ic_input"
+        app:startIconTint="@color/purple_700">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etEmail"
+            android:id="@+id/etInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
             android:layout_weight="1"
-            android:inputType="textEmailAddress" />
+            android:inputType="numberDecimal" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnBookTrip"
         android:layout_width="200dp"
         android:layout_height="@dimen/view_50dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="50dp"
         android:backgroundTint="@color/purple_700"
-        android:text="Login"
+        android:text="Book a Trip"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tlSearch" />
+
+    <Button
+        android:id="@+id/btnCancelTrip"
+        android:layout_width="200dp"
+        android:layout_height="@dimen/view_50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/rich_red"
+        android:text="cancel the Trip"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnBookTrip" />
+
+    <TextView
+        android:id="@+id/tvTotalTrips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:text="Total Booked Trips"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_16sp"
+        android:textColor="@color/purple_700"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnCancelTrip"
+        app:layout_constraintStart_toStartOf="@+id/btnCancelTrip"
+        app:layout_constraintTop_toBottomOf="@+id/btnCancelTrip" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

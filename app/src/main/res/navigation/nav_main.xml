@@ -9,5 +9,15 @@
         android:id="@+id/loginFragment"
         android:name="com.example.apollographqlmutationdemo.ui.login.LoginFragment"
         android:label="Login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_tripActionFragment"
+            app:destination="@id/tripActionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tripActionFragment"
+        android:name="com.example.apollographqlmutationdemo.ui.tripAction.TripActionFragment"
+        android:label="Trip Options"
+        tools:layout="@layout/fragment_trip_action" >
+    </fragment>
 </navigation>

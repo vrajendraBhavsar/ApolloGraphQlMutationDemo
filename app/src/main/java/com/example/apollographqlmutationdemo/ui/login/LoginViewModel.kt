@@ -1,4 +1,5 @@
 package com.example.apollographqlmutationdemo.ui.login
+import android.content.Context
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -18,10 +19,10 @@ class LoginViewModel @Inject constructor(private val loginRepository: LoginRepos
     private val _userLoginResult by lazy { MutableLiveData<ViewState<Response<UserLoginMutation.Data>>>() }
     val userLoginResult: LiveData<ViewState<Response<UserLoginMutation.Data>>> = _userLoginResult
 
-    fun getUserLoginResult(email: String) = viewModelScope.launch {
+    fun getUserLoginResult(email: String, context: Context) = viewModelScope.launch {
 //        _userLoginResult.postValue(ViewState.Loading()) //started loading..
         try {
-            val response = loginRepository.getLoginResult(email = email)
+            val response = loginRepository.getLoginResult(email = email, context = context)
             _userLoginResult.postValue(ViewState.Success(response))
         } catch (e: ApolloException) {
             Log.d("ApolloException", "userLoginResult Failure", e)
