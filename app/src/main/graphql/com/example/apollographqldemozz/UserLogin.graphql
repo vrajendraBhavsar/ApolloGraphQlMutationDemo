@@ -1,3 +1,3 @@
-mutation userLogin($email :String){
+mutation UserLogin($email :String){
     login (email : $email)
 }

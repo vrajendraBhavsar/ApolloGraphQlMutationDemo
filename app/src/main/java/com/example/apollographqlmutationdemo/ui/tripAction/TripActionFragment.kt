@@ -70,7 +70,6 @@ class TripActionFragment @Inject constructor() : Fragment() {
 
     private fun handleCancelTripResult(viewState: ViewState<Response<CancelTripMutation.Data>>?) {
         Toast.makeText(requireContext(), viewState?.value?.data?.cancelTrip?.message, Toast.LENGTH_SHORT).show()
-
     }
 
     private fun handleTotalBookedTripResult(viewState: ViewState<Response<TotalBookedTripsQuery.Data>>?) {

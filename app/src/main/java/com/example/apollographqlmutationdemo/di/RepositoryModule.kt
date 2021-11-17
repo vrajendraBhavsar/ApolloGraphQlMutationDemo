@@ -1,20 +1,23 @@
 package com.example.apollographqlmutationdemo.di
 
-import com.example.apollographqlmutationdemo.data.network.CharApiService
+import com.example.apollographqlmutationdemo.data.login.repository.LoginRepositoryImpl
+import com.example.apollographqlmutationdemo.data.tripAction.repository.TripActionRepositoryImpl
+import com.example.apollographqlmutationdemo.domain.login.LoginRepository
+import com.example.apollographqlmutationdemo.domain.tripAction.TripActionRepository
+import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
-import javax.inject.Singleton
+import dagger.hilt.android.components.ViewModelComponent
+import dagger.hilt.android.scopes.ViewModelScoped
 
-// Singleton ..here we will provide all 3rd party library Obj..
-@InstallIn(SingletonComponent::class)
 @Module
-object RepositoryModule {
+@InstallIn(ViewModelComponent::class)
+abstract class RepositoryModule {
+    @Binds
+    @ViewModelScoped
+    abstract fun bindLoginRepository(loginRepositoryImpl: LoginRepositoryImpl): LoginRepository
 
-    @Singleton
-    @Provides
-    fun provideNetworkServices(): CharApiService {
-        return CharApiService()
-    }
+    @Binds
+    @ViewModelScoped
+    abstract fun bindTripActionRepository(tripActionRepositoryImpl: TripActionRepositoryImpl): TripActionRepository
 }
